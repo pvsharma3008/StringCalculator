@@ -1,14 +1,17 @@
 package com.StringCalculator;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest 
-    extends TestCase
+public class AppTest
 {
-    
+	@Test
+	public void testAddWithEmptyString() {
+		assertEquals(0, App.add(""));
+	}
+	
 }
