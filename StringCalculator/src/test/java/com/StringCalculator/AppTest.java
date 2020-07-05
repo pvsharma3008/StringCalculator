@@ -27,6 +27,10 @@ public class AppTest
 		assertEquals(Integer.parseInt(num), calculator.add(num));
 	}
 	
-
+	@Test
+	public void testAddWithtwoNumber() {
+		String num = "20,30";
+		assertEquals(50, calculator.add(num));
+	}
 	
 }
