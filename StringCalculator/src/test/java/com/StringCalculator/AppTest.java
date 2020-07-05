@@ -14,4 +14,10 @@ public class AppTest
 		assertEquals(0, App.add(""));
 	}
 	
+	@Test
+	public void testAddWithSingleNumber() {
+		String num = "1";
+		assertEquals(Integer.parseInt(num), App.add(num));
+	}
+	
 }
