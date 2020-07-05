@@ -8,7 +8,7 @@ public class App
 		if(number.isEmpty()) {
 			return 0;
 		}
-		return 1;
+		return Integer.parseInt(number);
 	}
 	
 	public static void main( String[] args )
