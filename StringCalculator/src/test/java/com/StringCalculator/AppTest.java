@@ -33,4 +33,10 @@ public class AppTest
 		assertEquals(50, calculator.add(num));
 	}
 	
+	@Test
+	public void testAddWithNewLineDelimiter() {
+		String num = "1\n2";
+		assertEquals(3, calculator.add(num));
+	}
+	
 }
