@@ -39,4 +39,11 @@ public class AppTest
 		assertEquals(3, calculator.add(num));
 	}
 	
+	@Test
+	public void testAddWithMultipleNumbers() {
+		String num = "1,2,3";
+		assertEquals(6, calculator.add(num));
+	}
+	
+	
 }
