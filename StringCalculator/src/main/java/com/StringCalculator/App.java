@@ -4,11 +4,18 @@ package com.StringCalculator;
 public class App 
 {
     
-	public static int add(String number) {
-		if(number.isEmpty()) {
+	public int add(String number) {
+		if(strisempty(number)) {
 			return 0;
 		}
-		return Integer.parseInt(number);
+		return strtoint(number) ;
+	}
+	
+	private boolean strisempty(String num) {
+		return num.isEmpty();		
+	}
+	private int strtoint(String num) {
+		return Integer.parseInt(num);
 	}
 	
 	public static void main( String[] args )

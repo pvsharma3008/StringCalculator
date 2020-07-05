@@ -2,6 +2,7 @@ package com.StringCalculator;
 
 import static org.junit.Assert.assertEquals;
 
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -9,15 +10,23 @@ import org.junit.Test;
  */
 public class AppTest
 {
+	private App calculator;
+	
+	@Before
+	public void init() {
+		calculator = new App();
+	}
 	@Test
 	public void testAddWithEmptyString() {
-		assertEquals(0, App.add(""));
+		assertEquals(0, calculator.add(""));
 	}
 	
 	@Test
 	public void testAddWithSingleNumber() {
-		String num = "1";
-		assertEquals(Integer.parseInt(num), App.add(num));
+		String num = "20";
+		assertEquals(Integer.parseInt(num), calculator.add(num));
 	}
+	
+
 	
 }
