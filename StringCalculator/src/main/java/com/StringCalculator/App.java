@@ -26,7 +26,7 @@ public class App
 	}
 	private  List<Integer> arrayToList(String[] number) {
 		List<Integer> list = new ArrayList<>();
-		Arrays.stream(number).map(e -> Integer.parseInt(e)).forEach(e -> list.add(e));
+		Arrays.stream(number).map(e -> strtoint(e)).forEach(e -> list.add(e));
 		return list;
 	}
 	
