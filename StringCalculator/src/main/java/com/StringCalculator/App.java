@@ -13,12 +13,12 @@ public class App
 		}else if(number.startsWith("//")) {
 			char n  = number.charAt(2);
 			String num = number.substring(4);
-			String[] s = num.split("["+n+"]");
+			String[] s = splitedarray(num,"(["+n+"])");
 			List<Integer> l = arrayToList(s);
 			return sumation(l);
 		}	
 		else if(number.contains(",")|| number.contains("\n")) {
-			String[] num = number.split(",|\n");
+			String[] num = splitedarray(number,",|\n");
 			List<Integer> l = arrayToList(num);
 			return sumation(l);
 		}else {
@@ -35,6 +35,10 @@ public class App
 		List<Integer> list = new ArrayList<>();
 		Arrays.stream(number).map(e -> strtoint(e)).forEach(e -> list.add(e));
 		return list;
+	}
+	private String[] splitedarray(String num, String delimiter) {
+		return num.split(delimiter);
+		
 	}
 	
 	private boolean strisempty(String num) {
