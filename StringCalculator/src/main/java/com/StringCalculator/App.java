@@ -10,7 +10,14 @@ public class App
 	public int add(String number) {
 		if(strisempty(number)) {
 			return 0;
-		}else if(number.contains(",")|| number.contains("\n")) {
+		}else if(number.startsWith("//")) {
+			char n  = number.charAt(2);
+			String num = number.substring(4);
+			String[] s = num.split("["+n+"]");
+			List<Integer> l = arrayToList(s);
+			return sumation(l);
+		}	
+		else if(number.contains(",")|| number.contains("\n")) {
 			String[] num = number.split(",|\n");
 			List<Integer> l = arrayToList(num);
 			return sumation(l);
