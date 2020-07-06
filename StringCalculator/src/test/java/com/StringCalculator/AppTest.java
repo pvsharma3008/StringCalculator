@@ -41,7 +41,7 @@ public class AppTest
 	
 	@Test
 	public void testAddWithMultipleNumbers() {
-		String num = "1,2,3";
+		String num = "1\n2,3";
 		assertEquals(6, calculator.add(num));
 	}
 	
