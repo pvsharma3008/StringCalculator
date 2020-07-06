@@ -12,15 +12,22 @@ public class App
 			return 0;
 		}else if(number.contains(",")|| number.contains("\n")) {
 			String[] num = number.split(",|\n");
-			List<Integer> l = new ArrayList<>();
-			int sum=0;
-			Arrays.stream(num).map(e -> Integer.parseInt(e)).forEach(e -> l.add(e) );
-			for(int i:l)
-				sum = sum+i;
-			return sum;
+			List<Integer> l = arrayToList(num);
+			return sumation(l);
 		}else {
 			return strtoint(number);
 		}
+	}
+	private int sumation(List<Integer> l) {
+		int sum =0;
+		for(int i:l)
+			sum = sum+i;
+		return sum;
+	}
+	private  List<Integer> arrayToList(String[] number) {
+		List<Integer> list = new ArrayList<>();
+		Arrays.stream(number).map(e -> Integer.parseInt(e)).forEach(e -> list.add(e));
+		return list;
 	}
 	
 	private boolean strisempty(String num) {
