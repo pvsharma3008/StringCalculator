@@ -70,6 +70,11 @@ public class AppTest
 		assertEquals(3, calculator.add(num));
 	}
 	
+	@Test
+	public void testAddForCustomDelimiterOfAnyLength() {
+		String num  = "//[;;;]\n1;;;2;;;7";
+		assertEquals(10, calculator.add(num));
+	}
 
 	
 }
