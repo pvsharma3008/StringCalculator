@@ -29,7 +29,7 @@ public class App
 			return sumation(l);
 		}else {
 			if(strtoint(number)<0)
-				throw new IllegalArgumentException("negative number: " + number);
+				throw new IllegalArgumentException("negatives not allowed: " + number);
 			return strtoint(number);
 		}
 	}
@@ -40,10 +40,11 @@ public class App
 		for(int i:l) {
 			if(i<0)
 				negtive += i;
+			
 			sum = sum+i;
 			}
 		if(!negtive.isEmpty()) {
-			throw new IllegalArgumentException("negative number: " + negtive);
+			throw new IllegalArgumentException("negatives not allowed: " + negtive);
 		}
 		return sum;
 	}

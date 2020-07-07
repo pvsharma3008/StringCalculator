@@ -59,9 +59,15 @@ public class AppTest
 	@Test
 	public void testAddForNegetiveNumbersShouldTHrowException() {
 		expectedException.expect(IllegalArgumentException.class);
-		expectedException.expectMessage("negative number: -3-2");
+		expectedException.expectMessage("negatives not allowed: -3-2");
 
 		calculator.add("-3,-2,1");
+	}
+	
+	@Test
+	public void testAddForMoreThanThousandNumbers() {
+		String num  = "//;\n1;2;7000";
+		assertEquals(3, calculator.add(num));
 	}
 	
 
