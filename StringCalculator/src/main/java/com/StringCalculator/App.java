@@ -17,11 +17,7 @@ public class App
 		}else if(number.startsWith("//")) {
 			String[] headerAndNumberSequence = number.split("\n", 2);
 			String delimiter = parseDelimiter(headerAndNumberSequence[0]);
-			Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(number);
-			m.find();
-			m.matches();
-			String num = m.group(2);
-			String[] s = splitedarray(num,delimiter);
+			String[] s = splitedarray(headerAndNumberSequence[1],delimiter);
 			List<Integer> l = arrayToList(s);
 			return sumation(l);
 		}	

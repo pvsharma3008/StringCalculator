@@ -65,6 +65,14 @@ public class AppTest
 	}
 	
 	@Test
+	public void testAddForNegetiveNumberShouldTHrowException() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negatives not allowed: -3");
+
+		calculator.add("-3");
+	}
+	
+	@Test
 	public void testAddForMoreThanThousandNumbers() {
 		String num  = "//;\n1;2;7000";
 		assertEquals(3, calculator.add(num));
@@ -73,6 +81,11 @@ public class AppTest
 	@Test
 	public void testAddForCustomDelimiterOfAnyLength() {
 		String num  = "//[;;;]\n1;;;2;;;7";
+		assertEquals(10, calculator.add(num));
+	}
+	@Test
+	public void testAddForMultipleCustomDelimiterOfAnyLength() {
+		String num  = "//[;;;][,,]\n1;;;2,,7";
 		assertEquals(10, calculator.add(num));
 	}
 
