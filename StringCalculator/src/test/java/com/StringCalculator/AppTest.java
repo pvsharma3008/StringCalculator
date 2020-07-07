@@ -3,7 +3,9 @@ package com.StringCalculator;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 /**
  * Unit test for simple App.
@@ -49,6 +51,17 @@ public class AppTest
 	public void testAddForCustomDelimiter() {
 		String num  = "//;\n1;2;7";
 		assertEquals(10, calculator.add(num));
+	}
+	
+	@Rule
+	public ExpectedException expectedException = ExpectedException.none();
+	
+	@Test
+	public void testAddForNegetiveNumbersShouldTHrowException() {
+		expectedException.expect(IllegalArgumentException.class);
+		expectedException.expectMessage("negative number: -3");
+
+		calculator.add("-3");
 	}
 	
 	
