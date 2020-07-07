@@ -47,7 +47,7 @@ public class AppTest
 	
 	@Test
 	public void testAddForCustomDelimiter() {
-		String num  = "//*\n1*2*7";
+		String num  = "//;\n1;2;7";
 		assertEquals(10, calculator.add(num));
 	}
 	

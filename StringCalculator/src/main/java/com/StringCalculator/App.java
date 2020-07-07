@@ -3,6 +3,8 @@ package com.StringCalculator;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class App 
 {
@@ -11,9 +13,13 @@ public class App
 		if(strisempty(number)) {
 			return 0;
 		}else if(number.startsWith("//")) {
-			char n  = number.charAt(2);
-			String num = number.substring(4);
-			String[] s = splitedarray(num,"(["+n+"])");
+			
+			Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(number);
+			m.find();
+			m.matches();
+			String delimiter = m.group(1);
+			String num = m.group(2);
+			String[] s = splitedarray(num,delimiter);
 			List<Integer> l = arrayToList(s);
 			return sumation(l);
 		}	
