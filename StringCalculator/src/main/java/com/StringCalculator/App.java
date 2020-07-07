@@ -40,7 +40,8 @@ public class App
 		for(int i:l) {
 			if(i<0)
 				negtive += i;
-			
+			if(i>1000)
+				continue;
 			sum = sum+i;
 			}
 		if(!negtive.isEmpty()) {
