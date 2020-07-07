@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class App 
 {
@@ -13,11 +15,11 @@ public class App
 		if(strisempty(number)) {
 			return 0;
 		}else if(number.startsWith("//")) {
-			
+			String[] headerAndNumberSequence = number.split("\n", 2);
+			String delimiter = parseDelimiter(headerAndNumberSequence[0]);
 			Matcher m = Pattern.compile("//(.*)\n(.*)").matcher(number);
 			m.find();
 			m.matches();
-			String delimiter = m.group(1);
 			String num = m.group(2);
 			String[] s = splitedarray(num,delimiter);
 			List<Integer> l = arrayToList(s);
@@ -32,6 +34,16 @@ public class App
 				throw new IllegalArgumentException("negatives not allowed: " + number);
 			return strtoint(number);
 		}
+	}
+
+	private String parseDelimiter(String header) {
+		String delimiter = header.substring(2);
+		if (delimiter.startsWith("[")) {
+			delimiter = delimiter.substring(1, delimiter.length() - 1);
+		}
+		return Stream.of(delimiter.split("]\\["))
+				.map(Pattern::quote)
+				.collect(Collectors.joining("|"));
 	}
 
 	private int sumation(List<Integer> l) {
